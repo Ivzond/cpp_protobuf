@@ -1,6 +1,12 @@
 #ifndef SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_H_
 #define SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_H_
 
+#include <list>
+#include <string>
+#include <memory>
+#include "helpers.h"
+#include "message.pb.h" // Include your generated protobuf message header file
+
 template <typename MessageType>
 class DelimitedMessagesStreamParser
 {

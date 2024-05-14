@@ -6,11 +6,16 @@
 #else
 #define PROTOBUF_MESSAGE_BYTE_SIZE(message) ((message).ByteSize())
 #endif
+
+#include <vector>
+#include <memory>
+#include <google/protobuf/message.h>
+
 typedef std::vector<char> Data;
 typedef std::shared_ptr<const Data> PointerToConstData;
 typedef std::shared_ptr<Data> PointerToData;
 
-tempalte <typename Message> PointerToConstData serializeDelimited(const Message& msg) { return nullptr; }
+tempalte <typename Message> PointerToConstData serializeDelimited(const Message& msg);
 
 /*!
  * \brief Расшифровывает сообщение,предваренное длиной из массива байтов.
@@ -27,9 +32,6 @@ tempalte <typename Message> PointerToConstData serializeDelimited(const Message&
  * он не пустой.
  */
 template <typename Message>
-std::shared_ptr<Message> parseDelimited(const void* data, size_t size,
-                                        size_t* bytesConsumed = 0)
-{
-    return nullptr;
-}
+std::shared_ptr<Message> parseDelimited(const void* data, size_t size, size_t* bytesConsumed = nullptr);
+
 #endif //SRC_PROTOBUF_PARSER_HELPERS_H_
