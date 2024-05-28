@@ -1,22 +1,19 @@
-#ifndef SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_H_
-#define SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_H_
+#ifndef SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_HPP_
+#define SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_HPP_
 
 #include <list>
-#include <string>
 #include <memory>
-#include "helpers.h"
-#include "message.pb.h" // Include your generated protobuf message header file
+#include <vector>
+#include <string>
 
 template <typename MessageType>
-class DelimitedMessagesStreamParser
-{
+class DelimitedMessagesStreamParser {
 public:
     typedef std::shared_ptr<const MessageType> PointerToConstValue;
-
     std::list<PointerToConstValue> parse(const std::string& data);
 
 private:
     std::vector<char> m_buffer;
 };
 
-#endif //SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_H_
+#endif /* SRC_PROTOBUF_PARSER_DELIMITEDMESSAGESSTREAMPARSER_HPP_ */

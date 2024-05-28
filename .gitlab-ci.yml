@@ -6,12 +6,12 @@ default:
   image: "nexus.nic.etu:8181/nic/fedora_33:base"
 
 stages:
-    - test
+  - test
 
 test:
   stage: test
   script:
-    - dnf update -y && dnf install -y gcc-c++ cmake gtest-devel protobuf-devel
+    - dnf update -y  &&  dnf install -y gcc-c++ cmake gtest-devel protobuf-devel
     - mkdir build
     - cd build
     - cmake ..

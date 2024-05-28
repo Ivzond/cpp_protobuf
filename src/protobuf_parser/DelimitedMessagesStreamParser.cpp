@@ -1,47 +1,24 @@
-#include "DelimitedMessagesStreamParser.h"
-#include <google/protobuf/io/coded_stream.h>
+#include "DelimitedMessagesStreamParser.hpp"
+#include "helpers.hpp"
 
 template <typename MessageType>
 std::list<typename DelimitedMessagesStreamParser<MessageType>::PointerToConstValue>
 DelimitedMessagesStreamParser<MessageType>::parse(const std::string& data) {
-    std::list<PointerToConstValue> result;
-
-    size_t bytesConsumed = 0;
+    std::list<PointerToConstValue> messages;
     m_buffer.insert(m_buffer.end(), data.begin(), data.end());
-
-    while (!m_buffer.empty()) {
-        google::protobuf::io::CodedInputStream input(reinterpret_cast<const google::protobuf::uint8*>(m_buffer.data()), m_buffer.size());
-        google::protobuf::uint32 messageSize;
-        if (!input.ReadVarint32(&messageSize)) {
-            break; // Incomplete message, exit the loop
+    size_t offset = 0;
+    while (offset < m_buffer.size()) {
+        size_t bytes_consumed = 0;
+        auto message = parseDelimited<MessageType>(m_buffer.data() + offset, m_buffer.size() - offset, &bytes_consumed);
+        if (message == nullptr) {
+            break;
         }
-
-        if (input.ExpectAtEnd()) {
-            break; // Incomplete message, exit the loop
-        }
-
-        if (input.BytesUntilLimit() < messageSize) {
-            break; // Incomplete message, exit the loop
-        }
-
-        // Successfully read message size
-        bytesConsumed += google::protobuf::io::CodedOutputStream::VarintSize32(messageSize);
-        auto limit = input.PushLimit(messageSize);
-
-        std::shared_ptr<MessageType> message = std::make_shared<MessageType>();
-        if (message->ParseFromCodedStream(&input)) {
-            result.push_back(message);
-            bytesConsumed += messageSize;
-        }
-
-        input.PopLimit(limit);
+        messages.push_back(message);
+        offset += bytes_consumed;
     }
-
-    // Erase consumed bytes from buffer
-    m_buffer.erase(m_buffer.begin(), m_buffer.begin() + bytesConsumed);
-
-    return result;
+    m_buffer.erase(m_buffer.begin(), m_buffer.begin() + offset);
+    return messages;
 }
 
-// Explicit instantiation of DelimitedMessagesStreamParser for required message types
-template class DelimitedMessagesStreamParser<WrapperMessage>;
+// Эксплицитные инстанциации шаблонных функций
+template class DelimitedMessagesStreamParser<TestTask::Messages::WrapperMessage>;

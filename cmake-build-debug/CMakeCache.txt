@@ -142,28 +142,13 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_DESCRIPTION:STATIC=Разбор потока length-prefixed Protobuf сообщений на C++
+CMAKE_PROJECT_DESCRIPTION:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=protobuf_parser
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.0.0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+CMAKE_PROJECT_NAME:STATIC=Project
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -231,22 +216,13 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-cpp_protobuf_BINARY_DIR:STATIC=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
+Project_BINARY_DIR:STATIC=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
 
 //Value Computed by CMake
-cpp_protobuf_IS_TOP_LEVEL:STATIC=ON
+Project_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-cpp_protobuf_SOURCE_DIR:STATIC=/home/user/CLionProjects/cpp-protobuf
-
-//Value Computed by CMake
-protobuf_parser_BINARY_DIR:STATIC=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
-
-//Value Computed by CMake
-protobuf_parser_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-protobuf_parser_SOURCE_DIR:STATIC=/home/user/CLionProjects/cpp-protobuf
+Project_SOURCE_DIR:STATIC=/home/user/CLionProjects/cpp-protobuf
 
 
 ########################
@@ -349,7 +325,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
