@@ -1,5 +1,6 @@
-#include "DelimitedMessagesStreamParser.hpp"
-#include "helpers.hpp"
+#include "DelimitedMessagesStreamParser.h"
+#include "helpers.h"
+#include "../protobuf/message.pb.h"
 
 template <typename MessageType>
 std::list<typename DelimitedMessagesStreamParser<MessageType>::PointerToConstValue>
@@ -10,7 +11,8 @@ DelimitedMessagesStreamParser<MessageType>::parse(const std::string& data) {
     while (offset < m_buffer.size()) {
         size_t bytes_consumed = 0;
         auto message = parseDelimited<MessageType>(m_buffer.data() + offset, m_buffer.size() - offset, &bytes_consumed);
-        if (message == nullptr) {
+        if (!message) {
+            // Если нет сообщения, прерываем цикл и ожидаем больше данных
             break;
         }
         messages.push_back(message);

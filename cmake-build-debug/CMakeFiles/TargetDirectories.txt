@@ -1,2 +1,4 @@
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/protobuf_parser.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/runTests.dir
 /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/rebuild_cache.dir

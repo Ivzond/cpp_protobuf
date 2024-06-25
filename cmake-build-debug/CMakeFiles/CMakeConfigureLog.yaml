@@ -517,3 +517,34 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindProtobuf.cmake:541 (find_package)"
+      - "CMakeLists.txt:7 (find_package)"
+    directories:
+      source: "/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-4pkeTz"
+      binary: "/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-4pkeTz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-4pkeTz'
+        
+        Run Build Command(s): /snap/clion/275/bin/ninja/linux/x64/ninja -v cmTC_330ef
+        [1/2] /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_330ef.dir/src.c.o -c /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-4pkeTz/src.c
+        [2/2] : && /usr/bin/cc   CMakeFiles/cmTC_330ef.dir/src.c.o -o cmTC_330ef   && :
+        
+      exitCode: 0
+...
