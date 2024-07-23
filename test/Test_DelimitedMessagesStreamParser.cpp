@@ -29,7 +29,7 @@ TEST(Parser, SomeFastRequests)
 
     auto data = serializeDelimited(message);
 
-    size_t count = 5;
+    size_t count = 10;
     std::string stream;
     for (int i = 0; i < count; ++i)
         stream.append(data->begin(), data->end());
@@ -71,7 +71,7 @@ TEST(Parser, SomeSlowRequests)
 
     auto data = serializeDelimited(message);
 
-    size_t count = 5;
+    size_t count = 10;
     std::string stream;
     for (int i = 0; i < count; ++i)
         stream.append(data->begin(), data->end());
@@ -103,7 +103,7 @@ TEST(Parser, SomeRequests)
     auto fReqData = serializeDelimited(fastRequest);
     auto sReqData = serializeDelimited(slowRequest);
 
-    size_t count = 5;
+    size_t count = 10;
     std::string stream;
     for (int i = 0; i < count; ++i)
         stream.append(std::rand() % 2 > 0 ? std::string(fReqData->begin(), fReqData->end()) : std::string(sReqData->begin(), sReqData->end()));
