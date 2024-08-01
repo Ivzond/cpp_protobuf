@@ -1,0 +1,5 @@
+if(EXISTS "/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_helpers[1]_tests.cmake")
+  include("/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_helpers[1]_tests.cmake")
+else()
+  add_test(test_helpers_NOT_BUILT test_helpers_NOT_BUILT)
+endif()

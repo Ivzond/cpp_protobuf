@@ -182,6 +182,12 @@
 			"path" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake"
 		},
 		{
+			"path" : "src/CMakeLists.txt"
+		},
+		{
+			"path" : "test/CMakeLists.txt"
+		},
+		{
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindGTest.cmake"
@@ -251,6 +257,11 @@
 		{
 			"isExternal" : true,
 			"path" : "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets-none.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTest.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

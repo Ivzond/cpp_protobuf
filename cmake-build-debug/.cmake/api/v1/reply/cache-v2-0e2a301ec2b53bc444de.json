@@ -775,7 +775,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : ""
+			"value" : "\u0420\u0430\u0437\u0431\u043e\u0440 \u043f\u043e\u0442\u043e\u043a\u0430 length-prefixed Protobuf \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0439 \u043d\u0430 C++"
 		},
 		{
 			"name" : "CMAKE_PROJECT_HOMEPAGE_URL",
@@ -1435,7 +1435,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/CLionProjects/cpp-protobuf/cmake-build-debug"
+			"value" : "/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src"
 		},
 		{
 			"name" : "protobuf_parser_IS_TOP_LEVEL",
@@ -1447,7 +1447,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "ON"
+			"value" : "OFF"
 		},
 		{
 			"name" : "protobuf_parser_SOURCE_DIR",
@@ -1459,7 +1459,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/CLionProjects/cpp-protobuf"
+			"value" : "/home/user/CLionProjects/cpp-protobuf/src"
 		}
 	],
 	"kind" : "cache",

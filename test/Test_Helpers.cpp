@@ -1,5 +1,5 @@
-#include "protobuf_parser/helpers.h"
-#include <protobuf/message.pb.h>
+#include "protobuf_parser/helpers.hpp"
+#include <message.pb.h>
 
 #include <gtest/gtest.h>
 
@@ -62,8 +62,8 @@ TEST(ParseDelimited, WrongDataTest)
     size_t bytesConsumed = 0;
 
     EXPECT_THROW(
-        parseDelimited<TestTask::Messages::WrapperMessage>(buffer.data(), buffer.size(), &bytesConsumed),
-        std::runtime_error
+            parseDelimited<TestTask::Messages::WrapperMessage>(buffer.data(), buffer.size(), &bytesConsumed),
+            std::runtime_error
     );
 }
 

@@ -1,0 +1,5 @@
+if(EXISTS "/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_stream_parser[1]_tests.cmake")
+  include("/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_stream_parser[1]_tests.cmake")
+else()
+  add_test(test_stream_parser_NOT_BUILT test_stream_parser_NOT_BUILT)
+endif()

@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include <google/protobuf/io/coded_stream.h>
-#include "protobuf/message.pb.h"
+#include "message.pb.h"
 
 #if GOOGLE_PROTOBUF_VERSION >= 3012004
 #define PROTOBUF_MESSAGE_BYTE_SIZE(message) ((message).ByteSizeLong())

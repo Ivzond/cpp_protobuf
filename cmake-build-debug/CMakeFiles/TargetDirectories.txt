@@ -1,4 +1,13 @@
-/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/protobuf_parser.dir
-/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/runTests.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/test.dir
 /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src/CMakeFiles/proto.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src/CMakeFiles/protobuf_parser.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src/CMakeFiles/test.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/CMakeFiles/test_helpers.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/CMakeFiles/test_stream_parser.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/CMakeFiles/test.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/CMakeFiles/edit_cache.dir
+/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir

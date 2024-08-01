@@ -40,91 +40,17 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target protobuf_parser
-
 
 #############################################
-# Order-only phony target for protobuf_parser
+# Utility command for test
 
-build cmake_object_order_depends_target_protobuf_parser: phony || CMakeFiles/protobuf_parser.dir
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug && /snap/clion/275/bin/cmake/linux/x64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
 
-build CMakeFiles/protobuf_parser.dir/src/protobuf_parser/DelimitedMessagesStreamParser.cpp.o: CXX_COMPILER__protobuf_parser_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/src/protobuf_parser/DelimitedMessagesStreamParser.cpp || cmake_object_order_depends_target_protobuf_parser
-  DEP_FILE = CMakeFiles/protobuf_parser.dir/src/protobuf_parser/DelimitedMessagesStreamParser.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
-  OBJECT_DIR = CMakeFiles/protobuf_parser.dir
-  OBJECT_FILE_DIR = CMakeFiles/protobuf_parser.dir/src/protobuf_parser
-
-build CMakeFiles/protobuf_parser.dir/src/protobuf_parser/helpers.cpp.o: CXX_COMPILER__protobuf_parser_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/src/protobuf_parser/helpers.cpp || cmake_object_order_depends_target_protobuf_parser
-  DEP_FILE = CMakeFiles/protobuf_parser.dir/src/protobuf_parser/helpers.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
-  OBJECT_DIR = CMakeFiles/protobuf_parser.dir
-  OBJECT_FILE_DIR = CMakeFiles/protobuf_parser.dir/src/protobuf_parser
-
-build CMakeFiles/protobuf_parser.dir/src/protobuf/message.pb.cc.o: CXX_COMPILER__protobuf_parser_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/src/protobuf/message.pb.cc || cmake_object_order_depends_target_protobuf_parser
-  DEP_FILE = CMakeFiles/protobuf_parser.dir/src/protobuf/message.pb.cc.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
-  OBJECT_DIR = CMakeFiles/protobuf_parser.dir
-  OBJECT_FILE_DIR = CMakeFiles/protobuf_parser.dir/src/protobuf
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target protobuf_parser
-
-
-#############################################
-# Link the static library libprotobuf_parser.a
-
-build libprotobuf_parser.a: CXX_STATIC_LIBRARY_LINKER__protobuf_parser_Debug CMakeFiles/protobuf_parser.dir/src/protobuf_parser/DelimitedMessagesStreamParser.cpp.o CMakeFiles/protobuf_parser.dir/src/protobuf_parser/helpers.cpp.o CMakeFiles/protobuf_parser.dir/src/protobuf/message.pb.cc.o
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles/protobuf_parser.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = libprotobuf_parser.a
-  TARGET_PDB = protobuf_parser.a.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target runTests
-
-
-#############################################
-# Order-only phony target for runTests
-
-build cmake_object_order_depends_target_runTests: phony || cmake_object_order_depends_target_protobuf_parser
-
-build CMakeFiles/runTests.dir/test/Test_DelimitedMessagesStreamParser.cpp.o: CXX_COMPILER__runTests_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/test/Test_DelimitedMessagesStreamParser.cpp || cmake_object_order_depends_target_runTests
-  DEP_FILE = CMakeFiles/runTests.dir/test/Test_DelimitedMessagesStreamParser.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -DGTEST_HAS_PTHREAD=1
-  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
-  OBJECT_DIR = CMakeFiles/runTests.dir
-  OBJECT_FILE_DIR = CMakeFiles/runTests.dir/test
-
-build CMakeFiles/runTests.dir/test/Test_Helpers.cpp.o: CXX_COMPILER__runTests_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/test/Test_Helpers.cpp || cmake_object_order_depends_target_runTests
-  DEP_FILE = CMakeFiles/runTests.dir/test/Test_Helpers.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -DGTEST_HAS_PTHREAD=1
-  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
-  OBJECT_DIR = CMakeFiles/runTests.dir
-  OBJECT_FILE_DIR = CMakeFiles/runTests.dir/test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target runTests
-
-
-#############################################
-# Link the executable runTests
-
-build runTests: CXX_EXECUTABLE_LINKER__runTests_Debug CMakeFiles/runTests.dir/test/Test_DelimitedMessagesStreamParser.cpp.o CMakeFiles/runTests.dir/test/Test_Helpers.cpp.o | libprotobuf_parser.a /usr/lib/x86_64-linux-gnu/libprotobuf.so /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a || libprotobuf_parser.a
-  FLAGS = -g
-  LINK_LIBRARIES = libprotobuf_parser.a  /usr/lib/x86_64-linux-gnu/libprotobuf.so  /usr/lib/x86_64-linux-gnu/libgtest.a  /usr/lib/x86_64-linux-gnu/libgtest_main.a  /usr/lib/x86_64-linux-gnu/libgtest.a
-  OBJECT_DIR = CMakeFiles/runTests.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = runTests
-  TARGET_PDB = runTests.dbg
+build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -150,9 +76,233 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/user/CLionProjects/cpp-protobuf/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target proto
+
+
+#############################################
+# Order-only phony target for proto
+
+build cmake_object_order_depends_target_proto: phony || src/message.pb.cc src/message.pb.h
+
+build src/CMakeFiles/proto.dir/message.pb.cc.o: CXX_COMPILER__proto_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src/message.pb.cc || cmake_object_order_depends_target_proto
+  DEP_FILE = src/CMakeFiles/proto.dir/message.pb.cc.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src
+  OBJECT_DIR = src/CMakeFiles/proto.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/proto.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target proto
+
+
+#############################################
+# Link the static library src/libproto.a
+
+build src/libproto.a: CXX_STATIC_LIBRARY_LINKER__proto_Debug src/CMakeFiles/proto.dir/message.pb.cc.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/CMakeFiles/proto.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/libproto.a
+  TARGET_PDB = proto.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target protobuf_parser
+
+
+#############################################
+# Order-only phony target for protobuf_parser
+
+build cmake_object_order_depends_target_protobuf_parser: phony || cmake_object_order_depends_target_proto
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target protobuf_parser
+
+
+#############################################
+# Link the static library src/libprotobuf_parser.a
+
+build src/libprotobuf_parser.a: CXX_STATIC_LIBRARY_LINKER__protobuf_parser_Debug || src/libproto.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/CMakeFiles/protobuf_parser.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/libprotobuf_parser.a
+  TARGET_PDB = protobuf_parser.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build src/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src && /snap/clion/275/bin/cmake/linux/x64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build src/test: phony src/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src && /snap/clion/275/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/edit_cache: phony src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src && /snap/clion/275/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/user/CLionProjects/cpp-protobuf -B/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Custom command for src/message.pb.h
+
+build src/message.pb.h src/message.pb.cc | ${cmake_ninja_workdir}src/message.pb.h ${cmake_ninja_workdir}src/message.pb.cc: CUSTOM_COMMAND /home/user/CLionProjects/cpp-protobuf/src/protobuf/message.proto /usr/bin/protoc
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src && /usr/bin/protoc --cpp_out :/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src -I /home/user/CLionProjects/cpp-protobuf/src/protobuf /home/user/CLionProjects/cpp-protobuf/src/protobuf/message.proto
+  DESC = Running cpp protocol buffer compiler on protobuf/message.proto
+  restat = 1
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/user/CLionProjects/cpp-protobuf/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_helpers
+
+
+#############################################
+# Order-only phony target for test_helpers
+
+build cmake_object_order_depends_target_test_helpers: phony || cmake_object_order_depends_target_proto
+
+build test/CMakeFiles/test_helpers.dir/Test_Helpers.cpp.o: CXX_COMPILER__test_helpers_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/test/Test_Helpers.cpp || cmake_object_order_depends_target_test_helpers
+  DEP_FILE = test/CMakeFiles/test_helpers.dir/Test_Helpers.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -DGTEST_HAS_PTHREAD=1
+  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src
+  OBJECT_DIR = test/CMakeFiles/test_helpers.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_helpers.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_helpers
+
+
+#############################################
+# Link the executable test/test_helpers
+
+build test/test_helpers test/test_helpers[1]_tests.cmake | ${cmake_ninja_workdir}test/test_helpers[1]_tests.cmake: CXX_EXECUTABLE_LINKER__test_helpers_Debug test/CMakeFiles/test_helpers.dir/Test_Helpers.cpp.o | /usr/lib/x86_64-linux-gnu/libprotobuf.so src/libproto.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a || src/libproto.a
+  FLAGS = -g
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libprotobuf.so  src/libproto.a  /usr/lib/x86_64-linux-gnu/libgtest_main.a  /usr/lib/x86_64-linux-gnu/libgtest.a
+  OBJECT_DIR = test/CMakeFiles/test_helpers.dir
+  POST_BUILD = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test && /snap/clion/275/bin/cmake/linux/x64/bin/cmake -D TEST_TARGET=test_helpers -D TEST_EXECUTABLE=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_helpers -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=test_helpers_TESTS -D CTEST_FILE=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_helpers[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTestAddTests.cmake
+  PRE_LINK = :
+  RESTAT = 1
+  TARGET_FILE = test/test_helpers
+  TARGET_PDB = test_helpers.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_stream_parser
+
+
+#############################################
+# Order-only phony target for test_stream_parser
+
+build cmake_object_order_depends_target_test_stream_parser: phony || cmake_object_order_depends_target_proto
+
+build test/CMakeFiles/test_stream_parser.dir/Test_DelimitedMessagesStreamParser.cpp.o: CXX_COMPILER__test_stream_parser_unscanned_Debug /home/user/CLionProjects/cpp-protobuf/test/Test_DelimitedMessagesStreamParser.cpp || cmake_object_order_depends_target_test_stream_parser
+  DEP_FILE = test/CMakeFiles/test_stream_parser.dir/Test_DelimitedMessagesStreamParser.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -DGTEST_HAS_PTHREAD=1
+  INCLUDES = -I/home/user/CLionProjects/cpp-protobuf/src -I/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src
+  OBJECT_DIR = test/CMakeFiles/test_stream_parser.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_stream_parser.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_stream_parser
+
+
+#############################################
+# Link the executable test/test_stream_parser
+
+build test/test_stream_parser test/test_stream_parser[1]_tests.cmake | ${cmake_ninja_workdir}test/test_stream_parser[1]_tests.cmake: CXX_EXECUTABLE_LINKER__test_stream_parser_Debug test/CMakeFiles/test_stream_parser.dir/Test_DelimitedMessagesStreamParser.cpp.o | /usr/lib/x86_64-linux-gnu/libprotobuf.so src/libproto.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a || src/libproto.a
+  FLAGS = -g
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libprotobuf.so  src/libproto.a  /usr/lib/x86_64-linux-gnu/libgtest_main.a  /usr/lib/x86_64-linux-gnu/libgtest.a
+  OBJECT_DIR = test/CMakeFiles/test_stream_parser.dir
+  POST_BUILD = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test && /snap/clion/275/bin/cmake/linux/x64/bin/cmake -D TEST_TARGET=test_stream_parser -D TEST_EXECUTABLE=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_stream_parser -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=test_stream_parser_TESTS -D CTEST_FILE=/home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test/test_stream_parser[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTestAddTests.cmake
+  PRE_LINK = :
+  RESTAT = 1
+  TARGET_FILE = test/test_stream_parser
+  TARGET_PDB = test_stream_parser.dbg
+
+
+#############################################
+# Utility command for test
+
+build test/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test && /snap/clion/275/bin/cmake/linux/x64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test/test: phony test/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test && /snap/clion/275/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/edit_cache: phony test/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test && /snap/clion/275/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/user/CLionProjects/cpp-protobuf -B/home/user/CLionProjects/cpp-protobuf/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
-build protobuf_parser: phony libprotobuf_parser.a
+build libproto.a: phony src/libproto.a
+
+build libprotobuf_parser.a: phony src/libprotobuf_parser.a
+
+build proto: phony src/libproto.a
+
+build protobuf_parser: phony src/libprotobuf_parser.a
+
+build test_helpers: phony test/test_helpers
+
+build test_stream_parser: phony test/test_stream_parser
 
 # =============================================================================
 # Folder targets.
@@ -162,7 +312,21 @@ build protobuf_parser: phony libprotobuf_parser.a
 #############################################
 # Folder: /home/user/CLionProjects/cpp-protobuf/cmake-build-debug
 
-build all: phony libprotobuf_parser.a runTests
+build all: phony src/all test/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/src
+
+build src/all: phony src/libproto.a src/libprotobuf_parser.a
+
+# =============================================================================
+
+#############################################
+# Folder: /home/user/CLionProjects/cpp-protobuf/cmake-build-debug/test
+
+build test/all: phony test/test_helpers test/test_stream_parser
 
 # =============================================================================
 # Built-in targets
@@ -171,14 +335,14 @@ build all: phony libprotobuf_parser.a runTests
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/user/CLionProjects/cpp-protobuf/CMakeLists.txt /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindGTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindProtobuf.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/user/CLionProjects/cpp-protobuf/CMakeLists.txt /home/user/CLionProjects/cpp-protobuf/src/CMakeLists.txt /home/user/CLionProjects/cpp-protobuf/test/CMakeLists.txt /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindGTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindProtobuf.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/user/CLionProjects/cpp-protobuf/CMakeLists.txt /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindGTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindProtobuf.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
+build /home/user/CLionProjects/cpp-protobuf/CMakeLists.txt /home/user/CLionProjects/cpp-protobuf/src/CMakeLists.txt /home/user/CLionProjects/cpp-protobuf/test/CMakeLists.txt /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindGTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindProtobuf.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/GoogleTest.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /snap/clion/275/bin/cmake/linux/x64/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
 
 
 #############################################

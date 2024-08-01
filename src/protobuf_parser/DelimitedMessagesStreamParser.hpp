@@ -5,7 +5,7 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include "helpers.h"
+#include "helpers.hpp"
 
 template <typename MessageType>
 class DelimitedMessagesStreamParser {
