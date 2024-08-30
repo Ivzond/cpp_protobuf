@@ -1,10 +1,17 @@
-#ifndef SRC_PROTOBUF_PARSER_HELPERS_H_
-#define SRC_PROTOBUF_PARSER_HELPERS_H_
+/*
+ * helpers.h
+ */
+
+#ifndef SRC_PROTOBUF_PARSER_HELPERS_HPP_
+#define SRC_PROTOBUF_PARSER_HELPERS_HPP_
+
+#include "message.pb.h"
+
+#include <google/protobuf/io/coded_stream.h>
 
 #include <vector>
 #include <memory>
-#include <google/protobuf/io/coded_stream.h>
-#include "message.pb.h"
+
 
 #if GOOGLE_PROTOBUF_VERSION >= 3012004
 #define PROTOBUF_MESSAGE_BYTE_SIZE(message) ((message).ByteSizeLong())
@@ -44,32 +51,38 @@ PointerToConstData serializeDelimited(const Message& msg){
  * он не пустой.
  */
 template <typename Message>
-std::shared_ptr<Message> parseDelimited(const void* data, size_t size, size_t* bytesConsumed = nullptr){
-    if(!data || size == 0) {
+std::shared_ptr<Message> parseDelimited(const void* data, size_t size, size_t* bytesConsumed = nullptr)
+{
+    if(!data || size == 0)
+    {
         if (bytesConsumed) *bytesConsumed = 0;
         return nullptr;
     }
 
     google::protobuf::io::CodedInputStream input(reinterpret_cast<const google::protobuf::uint8*>(data), size);
     google::protobuf::uint32 messageSize;
-    if (!input.ReadVarint32(&messageSize)) {
+    if (!input.ReadVarint32(&messageSize))
+    {
         throw std::runtime_error("Failed to read message size");
     }
 
     size_t totalSize = input.CurrentPosition() + messageSize;
-    if (size < totalSize) {
+    if (size < totalSize)
+    {
         if (bytesConsumed) *bytesConsumed = 0;
         return nullptr;
     }
 
     auto message =std::make_shared<Message>();
     google::protobuf::io::CodedInputStream::Limit limit = input.PushLimit(messageSize);
-    if (!message->ParseFromCodedStream(&input) || !input.ConsumedEntireMessage()) {
+    if (!message->ParseFromCodedStream(&input) || !input.ConsumedEntireMessage())
+    {
         throw std::runtime_error("Failed to parse message");
     }
     input.PopLimit(limit);
 
-    if (bytesConsumed) *bytesConsumed = totalSize;
+    if (bytesConsumed)
+        *bytesConsumed = totalSize;
     return message;
 }
-#endif /* SRC_PROTOBUF_PARSER_HELPERS_H_ */
+#endif /* SRC_PROTOBUF_PARSER_HELPERS_HPP_ */
