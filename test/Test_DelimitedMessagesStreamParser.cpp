@@ -106,23 +106,35 @@ TEST(Parser, SomeRequests)
 
     size_t count = 5;
     std::string stream;
-    for (int i = 0; i < count; ++i)
-        stream.append(std::rand() % 2 > 0 ? std::string(fReqData->begin(), fReqData->end()) : std::string(sReqData->begin(), sReqData->end()));
+    int fastCount = 0, slowCount = 0;
+    for (int i = 0; i < count; ++i) {
+        if (std::rand() % 2 > 0)
+        {
+            stream.append(std::string(fReqData->begin(), fReqData.end()));
+            fastCount++;
+        }
+        else
+        {
+            stream.append(std::string(sReqData->begin(), sReqData.end()));
+            slowCount++;
+        }
+    }
 
     messages = parser.parse(stream);
     ASSERT_EQ(count, messages.size());
 
+    int actualFastCount = 0, actualSlowCount = 0;
     for (auto &item : messages)
     {
         ASSERT_TRUE(item->has_request_for_fast_response() || item->has_request_for_slow_response());
-        if (item->has_request_for_slow_response())
+        if (item->has_request_for_fast_response())
         {
-            EXPECT_EQ(
-                    item->request_for_slow_response().time_in_seconds_to_sleep(),
-                    slowRequest.request_for_slow_response().time_in_seconds_to_sleep()
-            );
+            actualFastCount++;
         }
+        else actualSlowCount++;
     }
+    ASSERT_EQ(fastCount, actualFastCount);
+    ASSERT_EQ(slowCount, actualSlowCount);
 }
 
 TEST(Parser, OneFastResponse)
@@ -237,30 +249,32 @@ TEST(Parser, SomeResponses)
 
     size_t count = 5;
     std::string stream;
-    for (int i = 0; i < count; ++i)
-        stream.append(std::rand() % 2 > 0 ? std::string(fRespData->begin(), fRespData->end()) : std::string(sRespData->begin(), sRespData->end()));
+    int fastCount = 0, slowCount = 0;
+    for (int i = 0; i < count; ++i) {
+        if (std::rand() % 2 > 0) {
+            stream.append(std::string(fRespData->begin(), fRespData->end()));
+            fastCount++;
+        } else {
+            stream.append(std::string(sRespData->begin(), sRespData->end()));
+            slowCount++;
+        }
+    }
 
     messages = parser.parse(stream);
     ASSERT_EQ(count, messages.size());
 
-    for (auto &item : messages)
-    {
+    int actualFastCount = 0, actualSlowCount = 0;
+    for (auto &item : messages) {
         ASSERT_TRUE(item->has_fast_response() || item->has_slow_response());
-        if (item->has_fast_response())
-        {
-            EXPECT_EQ(
-                    item->fast_response().current_date_time(),
-                    fastResponse.fast_response().current_date_time()
-            );
-        }
-        else
-        {
-            EXPECT_EQ(
-                    item->slow_response().connected_client_count(),
-                    slowResponse.slow_response().connected_client_count()
-            );
+        if (item->has_fast_response()) {
+            actualFastCount++;
+        } else {
+            actualSlowCount++;
         }
     }
+
+    ASSERT_EQ(fastCount, actualFastCount);
+    ASSERT_EQ(slowCount, actualSlowCount);
 }
 
 TEST(Parser, AllMessages)
@@ -287,22 +301,37 @@ TEST(Parser, AllMessages)
 
     size_t count = 10;
     std::string stream;
+    int fastReqCount = 0, slowReqCount = 0, fastRespCount = 0, slowRespCount = 0; // Счетчики
     for (int i = 0; i < count; ++i)
     {
         int msgType = std::rand() % 4;
         if (msgType == 0)
+        {
             stream.append(std::string(fReqData->begin(), fReqData->end()));
+            fastReqCount++;
+        }
         else if (msgType == 1)
+        {
             stream.append(std::string(sReqData->begin(), sReqData->end()));
+            slowReqCount++;
+        }
         else if (msgType == 2)
+        {
             stream.append(std::string(fRespData->begin(), fRespData->end()));
+            fastRespCount++;
+        }
         else
+        {
             stream.append(std::string(sRespData->begin(), sRespData->end()));
+            slowRespCount++;
+        }
     }
 
     messages = parser.parse(stream);
     ASSERT_EQ(count, messages.size());
 
+    int actualFastReqCount = 0, actualSlowReqCount = 0;
+    int actualFastRespCount = 0, actualSlowRespCount = 0;
     for (auto &item : messages)
     {
         ASSERT_TRUE(
@@ -311,9 +340,13 @@ TEST(Parser, AllMessages)
                 item->has_fast_response() ||
                 item->has_slow_response()
         );
-
-        if (item->has_request_for_slow_response())
+        if (item->has_request_for_fast_response())
         {
+            actualFastReqCount++;
+        }
+        else if (item->has_request_for_slow_response())
+        {
+            actualSlowReqCount++;
             EXPECT_EQ(
                     item->request_for_slow_response().time_in_seconds_to_sleep(),
                     slowRequest.request_for_slow_response().time_in_seconds_to_sleep()
@@ -321,19 +354,26 @@ TEST(Parser, AllMessages)
         }
         else if (item->has_fast_response())
         {
+            actualFastRespCount++;
             EXPECT_EQ(
                     item->fast_response().current_date_time(),
                     fastResponse.fast_response().current_date_time()
             );
+
         }
         else if (item->has_slow_response())
         {
+            actualSlowRespCount++;
             EXPECT_EQ(
                     item->slow_response().connected_client_count(),
                     slowResponse.slow_response().connected_client_count()
             );
         }
     }
+    ASSERT_EQ(fastReqCount, actualFastReqCount);
+    ASSERT_EQ(slowReqCount, actualSlowReqCount);
+    ASSERT_EQ(fastRespCount, actualFastRespCount);
+    ASSERT_EQ(slowRespCount, actualSlowRespCount);
 }
 
 TEST(Parser, EmptyData)
